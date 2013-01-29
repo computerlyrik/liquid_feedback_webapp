@@ -1,0 +1,5 @@
+// Spring Roo 1.2.3.RELEASE [rev 7fd62b6] log opened at 2013-01-29 19:17:25
+project --topLevelPackage de.computerlyrik.lf.webapp
+persistence setup --provider ECLIPSELINK --database POSTGRES --userName lf_OurOrganisation --databaseName lf_OurOrganisation --password x4ust9aoTTNy0u75T8wo
+database reverse engineer --schema public 
+web mvc setup
