@@ -13,24 +13,16 @@ import javax.validation.constraints.NotNull;
 privileged aspect MemberRelationSetting_Roo_DbManaged {
     
     @ManyToOne
-    @JoinColumn(name = "member_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Member MemberRelationSetting.memberId;
-    
-    @ManyToOne
     @JoinColumn(name = "other_member_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Member MemberRelationSetting.otherMemberId;
+    
+    @ManyToOne
+    @JoinColumn(name = "member_id", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
+    private Member MemberRelationSetting.memberId;
     
     @Column(name = "value")
     @NotNull
     private String MemberRelationSetting.value;
-    
-    public Member MemberRelationSetting.getMemberId() {
-        return memberId;
-    }
-    
-    public void MemberRelationSetting.setMemberId(Member memberId) {
-        this.memberId = memberId;
-    }
     
     public Member MemberRelationSetting.getOtherMemberId() {
         return otherMemberId;
@@ -38,6 +30,14 @@ privileged aspect MemberRelationSetting_Roo_DbManaged {
     
     public void MemberRelationSetting.setOtherMemberId(Member otherMemberId) {
         this.otherMemberId = otherMemberId;
+    }
+    
+    public Member MemberRelationSetting.getMemberId() {
+        return memberId;
+    }
+    
+    public void MemberRelationSetting.setMemberId(Member memberId) {
+        this.memberId = memberId;
     }
     
     public String MemberRelationSetting.getValue() {

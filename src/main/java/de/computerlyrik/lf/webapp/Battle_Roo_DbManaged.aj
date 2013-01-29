@@ -12,11 +12,11 @@ import javax.persistence.ManyToOne;
 privileged aspect Battle_Roo_DbManaged {
     
     @ManyToOne
-    @JoinColumns({ @JoinColumn(name = "issue_id", referencedColumnName = "issue_id", nullable = true, insertable = false, updatable = false), @JoinColumn(name = "winning_initiative_id", referencedColumnName = "id", nullable = true, insertable = false, updatable = false) })
+    @JoinColumns({ @JoinColumn(name = "issue_id", referencedColumnName = "issue_id", nullable = true, insertable = false, updatable = false), @JoinColumn(name = "losing_initiative_id", referencedColumnName = "id", nullable = true, insertable = false, updatable = false) })
     private Initiative Battle.initiative;
     
     @ManyToOne
-    @JoinColumns({ @JoinColumn(name = "issue_id", referencedColumnName = "issue_id", nullable = true, insertable = false, updatable = false), @JoinColumn(name = "losing_initiative_id", referencedColumnName = "id", nullable = true, insertable = false, updatable = false) })
+    @JoinColumns({ @JoinColumn(name = "issue_id", referencedColumnName = "issue_id", nullable = true, insertable = false, updatable = false), @JoinColumn(name = "winning_initiative_id", referencedColumnName = "id", nullable = true, insertable = false, updatable = false) })
     private Initiative Battle.initiative1;
     
     public Initiative Battle.getInitiative() {

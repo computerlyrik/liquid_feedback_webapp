@@ -24,12 +24,12 @@ privileged aspect Delegation_Roo_DbManaged {
     private Issue Delegation.issueId;
     
     @ManyToOne
-    @JoinColumn(name = "truster_id", referencedColumnName = "id", nullable = false)
-    private Member Delegation.trusterId;
-    
-    @ManyToOne
     @JoinColumn(name = "trustee_id", referencedColumnName = "id")
     private Member Delegation.trusteeId;
+    
+    @ManyToOne
+    @JoinColumn(name = "truster_id", referencedColumnName = "id", nullable = false)
+    private Member Delegation.trusterId;
     
     @ManyToOne
     @JoinColumn(name = "unit_id", referencedColumnName = "id")
@@ -55,20 +55,20 @@ privileged aspect Delegation_Roo_DbManaged {
         this.issueId = issueId;
     }
     
-    public Member Delegation.getTrusterId() {
-        return trusterId;
-    }
-    
-    public void Delegation.setTrusterId(Member trusterId) {
-        this.trusterId = trusterId;
-    }
-    
     public Member Delegation.getTrusteeId() {
         return trusteeId;
     }
     
     public void Delegation.setTrusteeId(Member trusteeId) {
         this.trusteeId = trusteeId;
+    }
+    
+    public Member Delegation.getTrusterId() {
+        return trusterId;
+    }
+    
+    public void Delegation.setTrusterId(Member trusterId) {
+        this.trusterId = trusterId;
     }
     
     public Unit Delegation.getUnitId() {

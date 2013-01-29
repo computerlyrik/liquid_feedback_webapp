@@ -7,12 +7,15 @@ import de.computerlyrik.lf.webapp.MemberCountPK;
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 privileged aspect MemberCountPK_Roo_Identifier {
     
     declare @type: MemberCountPK: @Embeddable;
     
     @Column(name = "calculated", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Calendar MemberCountPK.calculated;
     
     @Column(name = "total_count", nullable = false)

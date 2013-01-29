@@ -51,7 +51,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 privileged aspect Member_Roo_DbManaged {
     
     @ManyToMany
-    @JoinTable(name = "ignored_member", joinColumns = { @JoinColumn(name = "member_id", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "other_member_id", nullable = false) })
+    @JoinTable(name = "ignored_member", joinColumns = { @JoinColumn(name = "other_member_id", nullable = false) }, inverseJoinColumns = { @JoinColumn(name = "member_id", nullable = false) })
     private Set<Member> Member.members1;
     
     @ManyToMany(mappedBy = "members", cascade = CascadeType.ALL)

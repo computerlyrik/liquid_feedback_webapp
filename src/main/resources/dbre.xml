@@ -105,17 +105,17 @@
         <column name="winning_initiative_id" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="losing_initiative_id" primaryKey="false" required="false" scale="0" size="10" type="4,int4"/>
         <column name="count" primaryKey="false" required="true" scale="0" size="10" type="4,int4"/>
-        <foreign-key foreignTable="initiative" name="battle_issue_id_fkey" onDelete="cascade" onUpdate="cascade">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="issue_id" local="issue_id"/>
-            <reference foreign="id" local="winning_initiative_id"/>
-        </foreign-key>
         <foreign-key foreignTable="initiative" name="battle_issue_id_fkey1" onDelete="cascade" onUpdate="cascade">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="false"/>
             <reference foreign="issue_id" local="issue_id"/>
             <reference foreign="id" local="losing_initiative_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="initiative" name="battle_issue_id_fkey" onDelete="cascade" onUpdate="cascade">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="false"/>
+            <reference foreign="issue_id" local="issue_id"/>
+            <reference foreign="id" local="winning_initiative_id"/>
         </foreign-key>
         <unique name="battle_null_losing_idx">
             <unique-column name="issue_id"/>
@@ -135,15 +135,15 @@
         <column description="Member having the contact list" name="member_id" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
         <column description="Member referenced in the contact list" name="other_member_id" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
         <column description="TRUE = display contact publically" name="public" primaryKey="false" required="true" scale="0" size="1" type="-7,bool"/>
-        <foreign-key foreignTable="member" name="contact_member_id_fkey" onDelete="cascade" onUpdate="cascade">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="id" local="member_id"/>
-        </foreign-key>
         <foreign-key foreignTable="member" name="contact_other_member_id_fkey" onDelete="cascade" onUpdate="cascade">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="false"/>
             <reference foreign="id" local="other_member_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="member" name="contact_member_id_fkey" onDelete="cascade" onUpdate="cascade">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="member_id"/>
         </foreign-key>
         <unique name="contact_pkey">
             <unique-column name="member_id"/>
@@ -257,15 +257,15 @@
             <option key="exported" value="false"/>
             <reference foreign="id" local="issue_id"/>
         </foreign-key>
-        <foreign-key foreignTable="member" name="delegation_truster_id_fkey" onDelete="cascade" onUpdate="cascade">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="id" local="truster_id"/>
-        </foreign-key>
         <foreign-key foreignTable="member" name="delegation_trustee_id_fkey" onDelete="cascade" onUpdate="cascade">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="false"/>
             <reference foreign="id" local="trustee_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="member" name="delegation_truster_id_fkey" onDelete="cascade" onUpdate="cascade">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="truster_id"/>
         </foreign-key>
         <foreign-key foreignTable="unit" name="delegation_unit_id_fkey" onDelete="cascade" onUpdate="cascade">
             <option key="foreignSchemaName" value="public"/>
@@ -565,15 +565,15 @@
     <table alias="public" description="Possibility to filter other members" name="ignored_member">
         <column description="Member ignoring someone" name="member_id" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
         <column description="Member being ignored" name="other_member_id" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
-        <foreign-key foreignTable="member" name="ignored_member_member_id_fkey" onDelete="cascade" onUpdate="cascade">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="id" local="member_id"/>
-        </foreign-key>
         <foreign-key foreignTable="member" name="ignored_member_other_member_id_fkey" onDelete="cascade" onUpdate="cascade">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="false"/>
             <reference foreign="id" local="other_member_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="member" name="ignored_member_member_id_fkey" onDelete="cascade" onUpdate="cascade">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="member_id"/>
         </foreign-key>
         <unique name="ignored_member_pkey">
             <unique-column name="member_id"/>
@@ -1243,15 +1243,15 @@
         <column name="key" primaryKey="true" required="true" scale="0" size="2147483647" type="12,text"/>
         <column name="other_member_id" primaryKey="true" required="true" scale="0" size="10" type="4,int4"/>
         <column name="value" primaryKey="false" required="true" scale="0" size="2147483647" type="12,text"/>
-        <foreign-key foreignTable="member" name="member_relation_setting_member_id_fkey" onDelete="cascade" onUpdate="cascade">
-            <option key="foreignSchemaName" value="public"/>
-            <option key="exported" value="false"/>
-            <reference foreign="id" local="member_id"/>
-        </foreign-key>
         <foreign-key foreignTable="member" name="member_relation_setting_other_member_id_fkey" onDelete="cascade" onUpdate="cascade">
             <option key="foreignSchemaName" value="public"/>
             <option key="exported" value="false"/>
             <reference foreign="id" local="other_member_id"/>
+        </foreign-key>
+        <foreign-key foreignTable="member" name="member_relation_setting_member_id_fkey" onDelete="cascade" onUpdate="cascade">
+            <option key="foreignSchemaName" value="public"/>
+            <option key="exported" value="false"/>
+            <reference foreign="id" local="member_id"/>
         </foreign-key>
         <unique name="member_relation_setting_pkey">
             <unique-column name="member_id"/>
